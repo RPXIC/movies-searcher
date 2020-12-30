@@ -1,0 +1,8 @@
+.button-nav {
+	margin: 1rem 1rem 0.2rem;
+	background-color: #1ddb46bd;
+}
+.button-nav:hover {
+	cursor: pointer;
+	background-color: #1ddb46;
+}

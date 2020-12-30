@@ -1,0 +1,12 @@
+.searchform-input {
+	height: 2rem;
+}
+
+.button {
+	height: 2.38rem;
+	background-color: #1ddb46bd;
+}
+.button:hover {
+	background-color: #1ddb46;
+	cursor: pointer;
+}

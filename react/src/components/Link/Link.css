@@ -1,0 +1,8 @@
+.link {
+	border-bottom: 1px solid black;
+	padding: 1rem;
+	background-color: #1ddb46bd;
+	text-decoration: none;
+	color: black;
+	font-weight: 500;
+}
