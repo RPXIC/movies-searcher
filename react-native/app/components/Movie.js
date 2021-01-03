@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { Card } from 'react-native-elements'
 
 const Movie = ({ movie, navigation }) => {
@@ -14,7 +14,11 @@ const Movie = ({ movie, navigation }) => {
 				<Card.Title style={{ color: 'black' }}>
 					{Title} - {Year}
 				</Card.Title>
-				<Card.Image resizeMode='center' source={{ uri: Poster }} />
+				<Card.Image
+					resizeMode='center'
+					source={{ uri: Poster }}
+					onPress={() => navigation.navigate('details', { movie })}
+				/>
 			</Card>
 		</View>
 	)
