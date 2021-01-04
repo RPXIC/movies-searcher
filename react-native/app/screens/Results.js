@@ -7,12 +7,13 @@ import useMovies from '../hooks/useMovies'
 const Results = ({ route }) => {
 	const { page, query } = route.params
 	const navigation = useNavigation()
-	const { movies, results } = useMovies(page, query)
+	const { isLoading, movies, results } = useMovies(page, query)
 
 	return (
 		<View style={{ flex: 1, flexDirection: 'column' }}>
 			<Background>
 				<NavPage
+					isLoading={isLoading}
 					navigation={navigation}
 					page={page}
 					query={query}

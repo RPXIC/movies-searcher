@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native",
-    "slug": "react-native",
+    "name": "movie-searcher",
+    "slug": "movie-searcher",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "movie and video game searcher",
+    "githubUrl": "https://github.com/RPXIC/movies-searcher/tree/master/react-native"
   }
 }

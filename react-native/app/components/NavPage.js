@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 
-const PageNav = ({ navigation, page, query, results }) => {
+const PageNav = ({ isLoading, navigation, page, query, results }) => {
 	const [Prev, setPrev] = useState(false)
 	const [Next, setNext] = useState(true)
 	const totalPages = Math.ceil(results / 10)
@@ -29,7 +29,11 @@ const PageNav = ({ navigation, page, query, results }) => {
 					className='button-nav'
 					disabled={true}
 					title='Prev'></Button>
-				<Text style={styles.text}>No Results</Text>
+				{isLoading ? (
+					<ActivityIndicator size='large' style={{ margin: 7 }} />
+				) : (
+					<Text style={styles.text}>No Results</Text>
+				)}
 				<Button
 					className='button-nav'
 					disabled={true}
