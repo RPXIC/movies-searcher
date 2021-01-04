@@ -1,6 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
-import { StyleSheet, SafeAreaView, ScrollView, Text } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Card } from 'react-native-elements'
 import { Background, Info } from '../components'
 import useMovie from '../hooks/useMovie'

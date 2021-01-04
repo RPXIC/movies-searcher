@@ -1,14 +1,14 @@
 import React from 'react'
-import { StyleSheet, View, ImageBackground } from 'react-native'
+import { ImageBackground, StyleSheet, View } from 'react-native'
 const img = require('../../assets/bg.jpg')
 
 const Background = ({ children }) => {
 	return (
 		<View style={styles.container}>
 			<ImageBackground
+				imageStyle={{ opacity: 0.4 }}
 				source={img}
-				style={styles.image}
-				imageStyle={{ opacity: 0.4 }}>
+				style={styles.image}>
 				{children}
 			</ImageBackground>
 		</View>

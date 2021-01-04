@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, FlatList } from 'react-native'
+import { FlatList, SafeAreaView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Movie from './Movie'
 
@@ -10,10 +10,10 @@ const MoviesList = ({ movies }) => {
 		<SafeAreaView style={{ flex: 9 }}>
 			<FlatList
 				data={movies}
+				keyExtractor={(item, index) => index.toString()}
 				renderItem={({ item }) => (
 					<Movie movie={item} navigation={navigation} />
 				)}
-				keyExtractor={(item, index) => index.toString()}
 			/>
 		</SafeAreaView>
 	)

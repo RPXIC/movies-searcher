@@ -13,15 +13,15 @@ const Navigation = () => {
 				screenOptions={{
 					tabBarIcon: () => (
 						<Icon
-							type='material-community'
 							name='home-outline'
 							size={22}
+							type='material-community'
 						/>
 					),
 				}}>
 				<Tab.Screen
-					name='home'
 					component={HomeStack}
+					name='home'
 					options={{ title: 'Home' }}
 				/>
 			</Tab.Navigator>

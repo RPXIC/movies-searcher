@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Home, Results, Details } from '../screens'
+import { Details, Home, Results } from '../screens'
 
 const Stack = createStackNavigator()
 
@@ -8,22 +8,22 @@ const HomeStack = () => {
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
-				name='home'
 				component={Home}
+				name='home'
 				options={{
 					title: 'Movies Searcher',
 				}}
 			/>
 			<Stack.Screen
-				name='results'
 				component={Results}
+				name='results'
 				options={{
 					title: 'Results',
 				}}
 			/>
 			<Stack.Screen
-				name='details'
 				component={Details}
+				name='details'
 				options={{
 					title: 'Details',
 				}}

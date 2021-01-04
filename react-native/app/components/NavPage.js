@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 
 const PageNav = ({ navigation, page, query, results }) => {
@@ -22,26 +22,45 @@ const PageNav = ({ navigation, page, query, results }) => {
 		navigation.navigate('results', { page: newPage, query })
 	}
 
+	if (!results)
+		return (
+			<View style={styles.view}>
+				<Button
+					className='button-nav'
+					disabled={true}
+					title='Prev'></Button>
+				<Text style={styles.text}>No Results</Text>
+				<Button
+					className='button-nav'
+					disabled={true}
+					title='Next'></Button>
+			</View>
+		)
+
 	return (
 		<View style={styles.view}>
 			<Button
-				title='Prev'
 				className='button-nav'
 				disabled={!Prev}
-				onPress={handlePrev}></Button>
-			<Text style={{ color: 'white', margin: 7 }}>
+				onPress={handlePrev}
+				title='Prev'></Button>
+			<Text style={styles.text}>
 				Page: {page} / {totalPages}
 			</Text>
 			<Button
-				title='Next'
 				className='button-nav'
 				disabled={!Next}
-				onPress={handleNext}></Button>
+				onPress={handleNext}
+				title='Next'></Button>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
+	text: {
+		color: 'white',
+		margin: 7,
+	},
 	view: {
 		alignItems: 'center',
 		justifyContent: 'center',

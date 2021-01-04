@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { Card } from 'react-native-elements'
 
 const Movie = ({ movie, navigation }) => {
-	const { Title, Poster, Year } = movie
+	const { Poster, Title, Year } = movie
 
 	return (
 		<View>
@@ -15,9 +15,9 @@ const Movie = ({ movie, navigation }) => {
 					{Title} - {Year}
 				</Card.Title>
 				<Card.Image
+					onPress={() => navigation.navigate('details', { movie })}
 					resizeMode='center'
 					source={{ uri: Poster }}
-					onPress={() => navigation.navigate('details', { movie })}
 				/>
 			</Card>
 		</View>

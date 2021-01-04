@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Background, MoviesList, NavPage } from '../components'
 import useMovies from '../hooks/useMovies'
@@ -13,12 +13,12 @@ const Results = ({ route }) => {
 		<View style={{ flex: 1, flexDirection: 'column' }}>
 			<Background>
 				<NavPage
+					navigation={navigation}
 					page={page}
 					query={query}
 					results={results}
-					navigation={navigation}
 				/>
-				{movies ? <MoviesList movies={movies} /> : <Text>Results</Text>}
+				{movies && <MoviesList movies={movies} />}
 			</Background>
 		</View>
 	)
