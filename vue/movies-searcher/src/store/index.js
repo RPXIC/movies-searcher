@@ -3,9 +3,8 @@ import { API_KEY } from '../../apiKey'
 
 export default createStore({
 	state: {
-		hello: 'hello',
 		movies: {},
-		results: 0,
+		pages: 0,
 		response: null,
 		error: null,
 		loading: false,
@@ -19,7 +18,7 @@ export default createStore({
 				Error = null,
 			} = payload
 			state.movies = Search
-			state.results = totalResults
+			state.pages = Math.ceil(totalResults / 10)
 			state.response = Response
 			state.error = Error
 			state.loading = false

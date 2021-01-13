@@ -19,8 +19,6 @@ export default {
            return this.$store.state.movies
        }
    },
-   mounted() {
-   },
 }
 </script>
 

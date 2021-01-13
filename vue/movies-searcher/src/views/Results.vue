@@ -10,7 +10,7 @@
 import Form from '../components/Form'
 import MoviesList from '../components/MoviesList'
 import PageNav from '../components/PageNav'
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 
 export default {
     name: 'Results',
@@ -18,18 +18,6 @@ export default {
         Form,
         MoviesList,
         PageNav
-    },
-    data(){
-        return {
-            loading: false,
-            movies: [],
-            results: 0,
-            response: null,
-            error: null
-        }
-    },
-    computed: {
-        ...mapState(['hello'])
     },
     mounted(){
         this.getData()
