@@ -10,7 +10,7 @@
 import Form from '../components/Form'
 import MoviesList from '../components/MoviesList'
 import PageNav from '../components/PageNav'
-import { mapMutations, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
     name: 'Results',
@@ -26,7 +26,6 @@ export default {
         '$route': 'getData'
     },
     methods: {
-        ...mapMutations(['setMovies']),
         ...mapActions(['fetchData']),
         getData: function() {
             return this.$store.dispatch('fetchData', { page: this.$route.params.page, query: this.$route.params.query })

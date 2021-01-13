@@ -1,5 +1,5 @@
 <template>
-    <div class="detail">
+    <div class="detail" @click="navigate">
         <img :src='movie.Poster'>
         <p>{{ movie.Title }}</p>
         <p>{{ movie.Year }}</p>
@@ -9,7 +9,12 @@
 <script>
     export default {
         name: 'Movie',
-        props: ['movie']
+        props: ['movie'],
+        methods: {
+            navigate(){
+                this.$router.push(`/details/${this.movie.imdbID}`)
+            }
+        }
     }
 </script>
 
