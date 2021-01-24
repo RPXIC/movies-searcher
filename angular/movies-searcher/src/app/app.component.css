@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  color: white;
+}
+
+.bg {
+  width: 100%;
+  min-height: 100vh;
+  background: white url("../assets/bg.jpg") center/cover no-repeat fixed;
+}
+
+.bg-filter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #00000094;
+  backdrop-filter: sepia(0.4);
+}
