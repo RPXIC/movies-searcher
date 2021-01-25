@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { API_KEY } from '../../api-key'
+import { Movie, Search } from '../../interfaces'
 
 @Component({
   selector: 'app-results',
@@ -9,10 +12,15 @@ import { ActivatedRoute } from '@angular/router';
 export class ResultsPage implements OnInit {
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _http: HttpClient
   ) { }
   
   search: String = ''
+  page: string = '1'
+  movies: Movie[] = []
+  results: string = ''
+  response: string = ''
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -20,8 +28,15 @@ export class ResultsPage implements OnInit {
       if (query !== '' && typeof query === 'string') {
         this.search = query
       }
-      console.log(`Fetch: ${query}`)
     })
+
+    this._http.get<Search>(`https://www.omdbapi.com/?apikey=${API_KEY}&page=${this.page}&s=${this.search}`)
+      .subscribe(movies => {
+        const { Search, totalResults, Response } = movies
+        this.movies = Search
+        this.results = totalResults
+        this.response = Response
+      })
   }
 
 }

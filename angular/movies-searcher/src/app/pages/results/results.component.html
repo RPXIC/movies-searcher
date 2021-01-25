@@ -1,2 +1,10 @@
 <header></header>
 <p>results of {{search}}</p>
+
+<ul *ngIf="movies.length > 0">
+    <li *ngFor='let movie of movies'>
+        <ul>
+            {{movie.Title}}
+        </ul>
+    </li>
+</ul>
