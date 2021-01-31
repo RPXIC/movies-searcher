@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { API_KEY } from '../../api-key'
 import { Movie, Search } from '../../interfaces'
@@ -9,15 +9,15 @@ import { Movie, Search } from '../../interfaces'
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-export class ResultsPage implements OnInit {
 
+export class ResultsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private _http: HttpClient
   ) { }
   
-  search: String = ''
-  page: string = '1'
+  search: any = ''
+  page: any = '1'
   movies: Movie[] = []
   results: string = ''
   response: string = ''
@@ -25,18 +25,19 @@ export class ResultsPage implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const query = params.get('movie')
-      if (query !== '' && typeof query === 'string') {
-        this.search = query
-      }
-    })
+      const newPage = params.get('page')
 
-    this._http.get<Search>(`https://www.omdbapi.com/?apikey=${API_KEY}&page=${this.page}&s=${this.search}`)
-      .subscribe(movies => {
-        const { Search, totalResults, Response } = movies
-        this.movies = Search
-        this.results = totalResults
-        this.response = Response
-      })
+      if (query !== '') this.search = query
+      if (newPage !== '') this.page = newPage
+
+      this._http.get<Search>(`https://www.omdbapi.com/?apikey=${API_KEY}&page=${this.page}&s=${this.search}`)
+        .subscribe(movies => {
+          const { Search, totalResults, Response } = movies
+          this.movies = Search
+          this.results = totalResults
+          this.response = Response
+        })
+    })
   }
 
 }

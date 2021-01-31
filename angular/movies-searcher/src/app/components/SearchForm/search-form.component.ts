@@ -21,7 +21,7 @@ export class SearchFormComponent implements OnInit {
   searchMovie(e: Event) {
     e.preventDefault();
     if (this.search.value.trim() !== '') {
-      this.router.navigate(['/results', this.search.value])
+      this.router.navigate(['/results/1/', this.search.value])
     }
   }
   

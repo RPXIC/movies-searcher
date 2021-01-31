@@ -1,0 +1,11 @@
+<div class="movie" *ngIf='movie.Poster != "N/A"'>
+    <a routerLink="/details/{{movie.imdbID}}" class="card">
+        <figure>
+            <img src={{movie.Poster}} alt={{movie.Title}}>
+        </figure>
+        <div>
+            <p>{{movie.Title}}</p>
+            <p>{{movie.Year}}</p>
+        </div>
+    </a>
+</div>

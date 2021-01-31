@@ -1,0 +1,5 @@
+<div class="page-nav">
+    <button class="button" (click)="back()" [disabled]="backDisabled">Prev</button>
+    <p>Page: {{page}}/{{totalPages}}</p>
+    <button class="button" (click)="next()" [disabled]="nextDisabled">Next</button>
+</div>

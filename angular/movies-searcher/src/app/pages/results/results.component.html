@@ -1,10 +1,6 @@
 <header></header>
-<p>results of {{search}}</p>
+<page-nav [results]="results"></page-nav>
 
-<ul *ngIf="movies.length > 0">
-    <li *ngFor='let movie of movies'>
-        <ul>
-            {{movie.Title}}
-        </ul>
-    </li>
+<ul class="movies-list" *ngIf="movies.length > 0">
+    <movie [movie]="movie" *ngFor='let movie of movies'></movie>
 </ul>

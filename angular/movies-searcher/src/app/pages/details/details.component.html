@@ -1,0 +1,22 @@
+<button class="button" (click)="goBack()">Go Back</button>
+<div *ngIf="isEmptyObj(movie)" class="details">
+    <h1 class="title">{{movie.Title}}</h1>
+    <div>
+        <img src={{movie.Poster}} alt={{movie.Title}} />
+    </div>
+    <h3>Actors: {{movie.Actors}}.</h3>
+    <p>Description: {{movie.Plot}}.</p>
+    <p>Awards: {{movie.Awards}}.</p>
+    <p>Country: {{movie.Country}}.</p>
+    <p>Metascore: {{movie.Metascore}}.</p>
+    <p>Director: {{movie.Director}}.</p>
+    <p>Genre: {{movie.Genre}}.</p>
+    <p>Production: {{movie.Production}}.</p>
+    <div>
+        <p *ngFor="let rating of ratings">Source: {{rating.Source}} - Value: {{rating.Value}}.</p>
+    </div>
+    <p>Released: {{movie.Released}}.</p>
+    <p>Runtime: {{movie.Runtime}}.</p>
+    <p>Type: {{movie.Type}}.</p>
+    <p>Writer: {{movie.Writer}}.</p>
+</div>

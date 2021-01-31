@@ -1,0 +1,11 @@
+.movie {
+  border: 1px solid #8080804f;
+}
+
+.card {
+  margin: 0 auto;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
