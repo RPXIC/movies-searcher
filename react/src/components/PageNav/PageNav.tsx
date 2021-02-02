@@ -1,13 +1,15 @@
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import { PageNavInterface } from 'interfaces'
 import './PageNav.css'
 
-const PageNav = ({ results, page, setNewPage }) => {
-	const [Prev, setPrev] = useState(false)
-	const [Next, setNext] = useState(true)
+const PageNav = ({ results, page, setNewPage }: PageNavInterface) => {
+	const [Prev, setPrev] = useState<boolean>(false)
+	const [Next, setNext] = useState<boolean>(true)
 	const totalPages = Math.ceil(results / 10)
 	const history = useHistory()
-	const { query } = useParams()
+	const { query }:any = useParams()
 
 	if (Prev && page === 1) setPrev(false)
 	if (!Prev && page > 1) setPrev(true)
@@ -15,12 +17,12 @@ const PageNav = ({ results, page, setNewPage }) => {
 	if (!Next && page < totalPages) setNext(true)
 
 	const handleNext = () => {
-		setNewPage((prevPage) => prevPage + 1)
+		setNewPage((prevPage: number) => prevPage + 1)
 		history.push(`/results/${page + 1}/${query}`)
 	}
 
 	const handlePrev = () => {
-		setNewPage((prevPage) => prevPage - 1)
+		setNewPage((prevPage: number) => prevPage - 1)
 		history.push(`/results/${page - 1}/${query}`)
 	}
 
@@ -46,3 +48,9 @@ const PageNav = ({ results, page, setNewPage }) => {
 }
 
 export default PageNav
+
+PageNav.propTypes = {
+	results: PropTypes.number.isRequired,
+	page: PropTypes.number.isRequired,
+	setNewPage: PropTypes.func.isRequired,
+}

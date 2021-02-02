@@ -3,7 +3,7 @@ import { Title, SearchForm, MoviesList, PageNav } from 'components'
 import useMovies from 'hooks/useMovies'
 
 const Results = () => {
-	const [newPage, setNewPage] = useState(1)
+	const [newPage, setNewPage] = useState<number>(1)
 	const { movies, results, parsedPage } = useMovies({ newPage })
 
 	return (

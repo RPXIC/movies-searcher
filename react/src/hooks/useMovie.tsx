@@ -1,10 +1,28 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import getMovie from 'services/getMovie'
+import { ParamsInterface, MovieDetailsInterface } from 'interfaces'
 
 const useMovie = () => {
-	const { id } = useParams()
-	const [movie, setMovie] = useState({})
+	const { id }: ParamsInterface = useParams()
+	const [movie, setMovie] = useState<MovieDetailsInterface>({
+		Actors: '',
+		Awards: '',
+		Country: '',
+		Director: '',
+		Genre: '',
+		Metascore: '',
+		Plot: '',
+		Poster: '',
+		Production: '',
+		Ratings: [{Source:'', Value:''}],
+		Released: '',
+		Runtime: '',
+		Title: '',
+		Type: '',
+		Writer: '',
+	})
+
 	const {
 		Actors,
 		Awards,
@@ -24,10 +42,12 @@ const useMovie = () => {
 	} = movie
 
 	useEffect(() => {
-		;(async () => {
-			const movie = await getMovie(id)
-			setMovie(movie)
-		})()
+		if (id) {
+			;(async () => {
+				const movie:MovieDetailsInterface = await getMovie(id)
+				setMovie(movie)
+			})()
+		}
 	}, [id])
 
 	return {

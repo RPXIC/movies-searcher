@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom'
 import useMovie from 'hooks/useMovie'
+import { RatingInterface } from 'interfaces'
 
 const Detail = () => {
 	const history = useHistory()
@@ -42,7 +43,7 @@ const Detail = () => {
 				{Ratings && (
 					<>
 						<p>Ratings:</p>
-						{Ratings.map((rating, index) => (
+						{Ratings.map((rating:RatingInterface, index:number): JSX.Element => (
 							<p key={index}>
 								Source: {rating.Source} - Value: {rating.Value}
 							</p>

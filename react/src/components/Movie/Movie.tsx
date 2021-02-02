@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { MovieInterface } from 'interfaces'
 import './Movie.css'
 
-const Movie = ({ id, title, year, poster }) => (
+const Movie = ({ id, title, year, poster }: MovieInterface) => (
 	<Link to={`/detail/${id}`} className='card'>
 		<div className='card-img'>
 			<figure>
