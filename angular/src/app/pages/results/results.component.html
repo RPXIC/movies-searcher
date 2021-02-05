@@ -1,0 +1,7 @@
+<header></header>
+<page-nav [results]="results" *ngIf="movies; else noResults"></page-nav>
+<ng-template #noResults>No results</ng-template>
+
+<ul class="movies-list" *ngIf="movies">
+    <movie [movie]="movie" *ngFor='let movie of movies'></movie>
+</ul>
