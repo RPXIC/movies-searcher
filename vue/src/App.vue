@@ -21,6 +21,5 @@
     width: 100%;
     min-height: 100vh;
     background-color: #00000094;
-    backdrop-filter: sepia(0.4);
   }
 </style>
