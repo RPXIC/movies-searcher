@@ -2,7 +2,7 @@
   <header>
     <h1>Movies Searcher</h1>
     <form @submit.prevent>
-      <input type="text" placeholder="Find a movie..." v-model="query" autofocus>
+      <input type="text" placeholder="Find a movie..." v-model="query" autofocus />
       <button @click="search(query)">Search</button>
     </form>
   </header>
@@ -10,15 +10,15 @@
 
 <script>
 export default {
-  name: 'Form',
+  name: 'form-component',
   data() {
     return {
       query: ''
     }
   },
   methods: {
-    search(query){
-      if(query.trim() === '') return
+    search(query) {
+      if (query.trim() === '') return
       this.$router.push(`/results/1/${query}`)
     }
   }
@@ -26,19 +26,19 @@ export default {
 </script>
 
 <style scoped>
-  header {
-    padding-top: 1rem;
-    text-align: center;
-  }
-  input {
-    height: 2rem;
-  }
-  button {
-    height: 2.38rem;
-    background-color: #1ddb46bd;
-  }
-  button:hover {
-    background-color: #1ddb46;
-    cursor: pointer;
-  }
+header {
+  padding-top: 1rem;
+  text-align: center;
+}
+input {
+  height: 2rem;
+}
+button {
+  height: 2.38rem;
+  background-color: #1ddb46bd;
+}
+button:hover {
+  background-color: #1ddb46;
+  cursor: pointer;
+}
 </style>
